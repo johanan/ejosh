@@ -1,0 +1,23 @@
+$global-font-family: Montserrat, "Helvetica Neue", sans-serif !default;
+$global-font-size: 16px !default;
+$global-font-weight: 400 !default;
+$global-line-height: 1.5rem !default;
+
+@mixin for-phone-only {
+    @media (max-width: 599px) { @content; }
+  }
+  @mixin for-tablet-portrait-up {
+    @media (min-width: 600px) { @content; }
+  }
+  @mixin for-tablet-landscape-up {
+    @media (min-width: 900px) { @content; }
+  }
+  @mixin for-desktop-up {
+    @media (min-width: 1200px) { @content; }
+  }
+  @mixin for-big-desktop-up {
+    @media (min-width: 1800px) { @content; }
+  }
+
+// colors
+$header-background-color: #f8f8f8;

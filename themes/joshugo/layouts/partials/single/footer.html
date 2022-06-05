@@ -1,0 +1,50 @@
+<section id="post-footer">
+    <span>
+        {{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
+            {{- dict "Date" . | T "updatedOnDate" -}}
+            {{- if $.Site.Params.gitRepo -}}
+                {{- with $.GitInfo -}}
+                    &nbsp;<a class="git-hash" href="{{ printf `%v/commit/%v` $.Site.Params.gitRepo .Hash }}" target="_blank" title="commit by {{ .AuthorName }}({{ .AuthorEmail }}) {{ .Hash }}: {{ .Subject }}">
+                        <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>{{- .AbbreviatedHash -}}
+                    </a>
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    </span>
+
+    <section class="post-tags">
+        {{- with .Params.tags -}}
+            <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+            {{- range $index, $value := . -}}
+                {{- if gt $index 0 }},&nbsp;{{ end -}}
+                {{- $tag := $value | printf "/tags/%v" | $.Site.GetPage -}}
+                <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
+            {{- end -}}
+        {{- end -}}
+    </section>
+    <section>
+        <span><a href="javascript:void(0);" onclick="window.history.back();">{{ i18n "back" }}</a></span>&nbsp;|&nbsp;<span><a href="{{ .Site.Home.RelPermalink }}">{{ i18n "home" }}</a></span>
+    </section>
+
+    <div class="post-nav">
+        {{- $prevPage := false -}}
+        {{- $nextPage := false -}}
+        {{- if or (.Params.prev) (.Params.next) -}}
+            {{- with .Params.prev -}}
+                {{- $prevPage = $.Site.GetPage . -}}
+            {{- end -}}
+            {{- with .Params.next -}}
+                {{- $nextPage = $.Site.GetPage . -}}
+            {{- end -}}
+        {{- else -}}
+            {{- $prevPage = .PrevInSection -}}
+            {{- $nextPage = .NextInSection -}}
+        {{- end -}}
+        {{- with $prevPage -}}
+            <a href="{{ .RelPermalink }}" class="prev" rel="prev" title="{{ .Title }}"> < {{ .Title | emojify }}</a>
+        {{- end -}}
+        {{ with $nextPage }}
+            <a href="{{ .RelPermalink }}" class="next" rel="next" title="{{ .Title }}">{{ .Title | emojify }} ></a>
+        {{- end -}}
+    </div>
+</section>

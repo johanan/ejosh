@@ -1,0 +1,17 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+<section id="content">
+    <article>
+        <h1>{{ .Title }}</h1>
+        {{ with $imageSrc := .Params.featuredimage }}
+            {{- $image := resources.Get . -}}
+            {{ with $image }}
+                <img src="{{ .RelPermalink }}" />
+            {{ end }}
+        {{ end }}
+        {{ .Content }}
+    </article>
+</section>
+{{- partial "single/footer.html" . -}}
+{{- end -}}

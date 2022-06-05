@@ -1,0 +1,83 @@
+{{- /* Home SEO */ -}}
+{{- if .IsHome -}}
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "{{ .Permalink }}",
+        {{- with .Site.LanguageCode -}}
+            "inLanguage": "{{ . }}",
+        {{- end -}}
+        {{- with .Site.Author.name -}}
+            "author": {
+                "@type": "Person",
+                "name": {{ . | safeHTML }}
+            },
+        {{- end -}}
+        {{- with .Site.Params.description -}}
+            "description": {{ . | safeHTML }},
+        {{- end -}}
+        {{- with .Site.Copyright -}}
+            "license": "{{ . | safeHTML }}",
+        {{- end -}}
+        "name": {{ .Site.Title | safeHTML }}
+    }
+    </script>
+
+{{- /* Page SEO */ -}}
+{{- else if .IsPage -}}
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": {{ .Title | safeHTML }},
+        "inLanguage": "{{ .Site.LanguageCode }}",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ .Permalink }}"
+        },
+        "genre": "{{ .Type }}",
+        {{- with .Params.tags -}}
+            "keywords": "{{ delimit . ", " }}",
+        {{- end -}}
+        "wordcount": {{ .WordCount }},
+        "url": "{{ .Permalink }}",
+        {{- if not .PublishDate.IsZero -}}
+            "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | safeHTML }},
+        {{- else if not .Date.IsZero -}}
+            "datePublished": {{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }},
+        {{- end -}}
+        {{- with .Lastmod -}}
+            "dateModified": {{ .Format "2006-01-02T15:04:05-07:00" | safeHTML }},
+        {{- end -}}
+        {{- with .Site.Copyright -}}
+            "license": {{ . | safeHTML }},
+        {{- end -}}
+        {{- $publisher := .Params.author | default .Site.Author.name | default (T "author") | dict "name" -}}
+        "publisher": {
+            "@type": "Organization",
+            "name": {{ $publisher.name | safeHTML }}
+            {{- $logo := $publisher.logoUrl -}}
+            {{- with dict "Path" $logo "Resources" .Resources -}}
+                ,"logo": {
+                    "@type": "ImageObject",
+                    "url": "{{ .Permalink }}",
+                    "width": {{ .Width }},
+                    "height": {{ .Height }}
+                }
+            {{- else -}}
+                {{- with $logo -}}
+                    ,"logo": "{{ . | absURL }}"
+                {{- end -}}
+            {{- end -}}
+        },
+        {{- with .Params.author | default .Site.Author.name | default (T "author") -}}
+            "author": {
+                "@type": "Person",
+                "name": {{ . | safeHTML }}
+            },
+        {{- end -}}
+        "description": {{ .Description | safeHTML }}
+    }
+    </script>
+{{- end -}}

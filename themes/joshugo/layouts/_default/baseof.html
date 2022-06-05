@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+        {{- partial "head/link.html" . -}}
+        {{- partial "head/seo.html" . -}}
+        {{ range .AlternativeOutputFormats -}}
+            {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+        {{ end -}}
+
+    </head>
+    <body>
+        {{ partial "header" . }}
+        <main>
+            {{- block "content" . }}{{ end -}}
+        </main>
+        {{ partial "footer" . }}
+    </body>
+</html>
