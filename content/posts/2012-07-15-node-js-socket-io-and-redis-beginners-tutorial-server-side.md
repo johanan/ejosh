@@ -1,6 +1,6 @@
 ---
 id: 397
-title: 'node.js, socket.io, and redis: Beginners Tutorial &#8211; Server side'
+title: 'node.js, socket.io, and redis: Beginners Tutorial  Server side'
 date: '2012-07-15T21:00:52-04:00'
 author: 'Joshua Johanan'
 layout: post

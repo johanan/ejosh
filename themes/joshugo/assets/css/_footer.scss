@@ -1,0 +1,18 @@
+footer {
+    width: 100%;
+    text-align: center;
+    line-height: 1.25rem;
+    padding: 1rem 0;
+    font-size: .875rem;
+    color: var(--gray6);
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: inline;
+        }
+    }
+  }

@@ -22,9 +22,8 @@
             {{- end -}}
         {{- end -}}
     </section>
-    <section>
-        <span><a href="javascript:void(0);" onclick="window.history.back();">{{ i18n "back" }}</a></span>&nbsp;|&nbsp;<span><a href="{{ .Site.Home.RelPermalink }}">{{ i18n "home" }}</a></span>
-    </section>
+
+    {{ template "_internal/disqus.html" . }}
 
     <div class="post-nav">
         {{- $prevPage := false -}}
@@ -41,7 +40,7 @@
             {{- $nextPage = .NextInSection -}}
         {{- end -}}
         {{- with $prevPage -}}
-            <a href="{{ .RelPermalink }}" class="prev" rel="prev" title="{{ .Title }}"> < {{ .Title | emojify }}</a>
+            <a href="{{ .RelPermalink | safeURL }}" class="prev" rel="prev" title="{{ .Title }}"> < {{ .Title | emojify }}</a>
         {{- end -}}
         {{ with $nextPage }}
             <a href="{{ .RelPermalink }}" class="next" rel="next" title="{{ .Title }}">{{ .Title | emojify }} ></a>

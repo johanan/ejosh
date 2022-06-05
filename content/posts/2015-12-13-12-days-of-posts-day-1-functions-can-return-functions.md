@@ -1,6 +1,6 @@
 ---
 id: 1138
-title: '12 Days of Posts: Day 1 &#8211; Functions can return functions'
+title: '12 Days of Posts: Day 1 Functions can return functions'
 date: '2015-12-13T19:28:28-05:00'
 author: 'Joshua Johanan'
 layout: post

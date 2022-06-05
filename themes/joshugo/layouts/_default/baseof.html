@@ -2,6 +2,7 @@
 <html lang="{{ .Site.LanguageCode }}">
     <head>
         <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+        {{ template "_internal/google_analytics.html" . }}
         {{- partial "head/link.html" . -}}
         {{- partial "head/seo.html" . -}}
         {{ range .AlternativeOutputFormats -}}
@@ -12,7 +13,9 @@
     <body>
         {{ partial "header" . }}
         <main>
+            <div class="container">
             {{- block "content" . }}{{ end -}}
+            </div>
         </main>
         {{ partial "footer" . }}
     </body>

@@ -1,0 +1,43 @@
+#content {
+    h1 {
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    pre {
+        font-size: .875rem;
+        padding: 1rem;
+        border-radius: 0.3rem;
+        overflow: auto;
+    }
+
+    p {
+        font-family: var(--global-body-font-family);
+        line-height: 1.75rem;
+    }
+
+    .meta {
+        img {
+            border-radius: 50%;
+            padding: 0 0.125rem;
+        }
+    }
+}
+
+#post-footer {
+    .post-tags {
+        font-size: 0.9rem;
+    }
+
+    .post-nav {
+        display: flex;
+        flex-flow: column wrap;
+        align-content: space-between;
+        font-weight: 600;
+        height: 1rem;
+    }
+}

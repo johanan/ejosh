@@ -1,6 +1,6 @@
 ---
 id: 109
-title: 'Facebook SDK using only javascript &#8211; pt 1'
+title: 'Facebook SDK using only javascript  pt 1'
 date: '2011-11-10T19:52:34-05:00'
 author: 'Joshua Johanan'
 layout: post
@@ -20,16 +20,21 @@ tags:
 
 ## Setup your Facebook App
 
-First thing you will need to do is to create an app through Facebook. Start at the [Facebook Developers](https://developers.facebook.com/apps) site. There will be a button to create a new app. A modal window will popup. Fill this out.[![](http://ejosh.co/de/wp-content/uploads/2011/11/fb-app.png "Create a Facebook App")](http://ejosh.co/de/wp-content/uploads/2011/11/fb-app.png)You may have to play with the App namespace to find something that isn’t taken. You now will have to fill out the App Domain and Site URL. This will be where your site is hosted. This has to be correct or you will get errors when you try to call anything with the Facebook SDK.[![](http://ejosh.co/de/wp-content/uploads/2011/11/fb-app-settings.png "App Settings")](http://ejosh.co/de/wp-content/uploads/2011/11/fb-app-settings.png)You now have a facebook application. Facebook may, and probably will, change this process, but it should be straight forward. We don’t have to download the Facebook javascript SDK as we will load in the browser from Facebook.
+First thing you will need to do is to create an app through Facebook. Start at the [Facebook Developers](https://developers.facebook.com/apps) site. There will be a button to create a new app. A modal window will popup. Fill this out.
+
+[![](http://ejosh.co/de/wp-content/uploads/2011/11/fb-app.png "Create a Facebook App")](http://ejosh.co/de/wp-content/uploads/2011/11/fb-app.png)
+
+You may have to play with the App namespace to find something that isn’t taken. You now will have to fill out the App Domain and Site URL. This will be where your site is hosted. This has to be correct or you will get errors when you try to call anything with the Facebook SDK.
+
+[![](http://ejosh.co/de/wp-content/uploads/2011/11/fb-app-settings.png "App Settings")](http://ejosh.co/de/wp-content/uploads/2011/11/fb-app-settings.png)
+
+You now have a facebook application. Facebook may, and probably will, change this process, but it should be straight forward. We don’t have to download the Facebook javascript SDK as we will load in the browser from Facebook.
 
 ## HTML skeleton
 
 All of our content will be coming from Facebook over the Facebook SDK. Because of this we don’t need to create much HTML. We just want certain elements that we can target to put our content in.
 
-```
-<pre class="brush: xml; title: ; notranslate" title="">
-  
-  
+```html
 <html xmlns:fb="http://www.facebook.com/2008/fbml"> 
     <head>  
         <title>8-BIT FACEBIT</title>  
@@ -80,8 +85,7 @@ All of our content will be coming from Facebook over the Facebook SDK. Because o
 47 lines, that’s it. I will highlight a few key parts to make this work.  
 First we have to load FBML. This will allow us to easily add the Facebook login button:
 
-```
-<pre class="brush: xml; title: ; notranslate" title="">
+```html
 <html xmlns:fb="http://www.facebook.com/2008/fbml"> 
 ```
 
@@ -89,20 +93,19 @@ Next we load six javascript files:[ jQuery](http://jquery.com), underscore, [bac
 
 Most of the CSS is designed to invoke the idea of the Legend of Zelda main screen. The CSS is pretty straight forward except for the web font. I am using a font made by Goatmeal called [Nintendo NES font](http://fontstruct.com/fontstructions/show/nintendo_nes_font). I use @font-face to load the web font and font-family to use it in a CSS declaration.
 
-```
-<pre class="brush: css; title: ; notranslate" title="">
-         @font-face 
-         {
-		  font-family: 'NintendoNESFontRegular';
-		  font-style: normal;
-		  font-weight: normal;
-		  src: url('http://ejosh.co/nintendo_nes_font-webfont.ttf') format('truetype');
-	  }
-	  
-	  body
-	  {
-		  font-family: 'NintendoNESFontRegular';
-	  }
+```css
+@font-face 
+{
+	font-family: 'NintendoNESFontRegular';
+	font-style: normal;
+	font-weight: normal;
+	src: url('http://ejosh.co/nintendo_nes_font-webfont.ttf') format('truetype');
+}
+
+body
+{
+	font-family: 'NintendoNESFontRegular';
+}
 ```
 
 At this point you should have page that is bare and a lot of javascript loaded into the browser. In the next part I will tackle Facebook login events and Facebook api calls. All in javascript.

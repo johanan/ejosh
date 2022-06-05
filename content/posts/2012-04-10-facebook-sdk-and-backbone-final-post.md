@@ -1,6 +1,6 @@
 ---
 id: 206
-title: 'Facebook SDK and Backbone &#8211; Final Post'
+title: 'Facebook SDK and Backbone  Final Post'
 date: '2012-04-10T23:15:53-04:00'
 author: 'Joshua Johanan'
 layout: post

@@ -20,8 +20,7 @@ tags:
 
 We will start with React as we need to show how to modify the DOM. Here is some simple code that we will discuss.
 
-```
-<pre class="brush: jscript; title: io_functions.js; notranslate" title="io_functions.js">
+```js
 const R = require('ramda');
 const IO = require('monet').IO;
 
@@ -77,8 +76,7 @@ This makes creating and reasoning about how the state can change very clear. We 
 
 In this project, we are not pulling in Redux as it would be overkill. We will, however, build a function that would fit perfectly in Redux, though. This is a small project so the state is small. It just consists of; the original text of the Mad Lib, the indexes of words to replace, the new words that are the replacements, what step in the process, and whether or not to highlight the parts of speech. Let’s look at the function that will modify this state.
 
-```
-<pre class="brush: jscript; title: fake_redux/processStateChange.js; notranslate" title="fake_redux/processStateChange.js">
+```js
 const R = require('ramda');
 
 //helper for processStateChange
@@ -125,8 +123,7 @@ If you have built any Redux stores, this will look really similar. It is pretty 
 
 There is one other script that is kind of a mix of React and Redux. It looks like a Redux store but is used to determine what to render. This next code is mainly used because of how simple the `render` function is. If we had React this would fit perfectly into a React component.
 
-```
-<pre class="brush: jscript; title: fake_redux/renderState.js; notranslate" title="fake_redux/renderState.js">
+```js
 const R = require('ramda');
 
 //make this configurable
@@ -184,8 +181,7 @@ These are compositions that focus on looking at the classList of an element to r
 
 Now we can see how this is integrated into the application.
 
-```
-<pre class="brush: jscript; title: index.js; notranslate" title="index.js">
+```js
 let getWords = R.map(R.prop('value'));
 let onlyBodyCreate = onlyClass((p) => p.nodeName == 'BODY', 'create');
 let onlyTheseWords = onlyThese(['Noun', 'Verb', 'Adjective', 'Adverb']);
@@ -223,8 +219,7 @@ We will get to `dispatch` shortly. Each action is a simple object with a `type` 
 
 At this point, we have discussed adding elements and handling events, but we have not covered how we will actually add elements to the page. We will essentially just create a mapping function to map from our list of words into spans or inputs. Let’s look at the code.
 
-```
-<pre class="brush: jscript; title: dom_element_map_functions.js; notranslate" title="dom_element_map_functions.js">
+```js
 const R = require('ramda');
 
 //DOM mapping functions
@@ -256,8 +251,7 @@ There are no more building block functions to create so we can finally see how t
 
 First is rendering. We currently have the `render` function which will take a root element and a list of elements then replace everything in the root element with the new elements. That is what we will use to compose.
 
-```
-<pre class="brush: jscript; title: index.js; notranslate" title="index.js">
+```js
 //curried render to root
 let rootRender = render(root);
 let createRender = R.compose(rootRender, R.map(spanMap(document)), createRenderElements);
@@ -276,8 +270,7 @@ This is just more composition. `rootRender` is a curried function that will alwa
 
 Next, we need somewhere to store state. This is what makes everything work.
 
-```
-<pre class="brush: jscript; title: index.js; notranslate" title="index.js">
+```js
 //application state stuff
 let impureStateActions = (state) => {
   return IO(() => {

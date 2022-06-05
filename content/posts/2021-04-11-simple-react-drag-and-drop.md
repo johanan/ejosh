@@ -6,7 +6,6 @@ author: 'Joshua Johanan'
 layout: post
 guid: 'https://ejosh.co/de/?p=1480'
 permalink: /2021/04/simple-react-drag-and-drop/
-featuredimage: /wp-content/uploads/2015/02/imgres.png
 categories:
     - Javascript
 tags:
@@ -22,7 +21,9 @@ I decided on using [react-beautiful-dnd](https://github.com/atlassian/react-beau
 
 Let’s look at an example that shows how simple and flexible we can make react-beautiful-dnd.
 
-<iframe allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" src="https://codesandbox.io/embed/hungry-firefly-ljvjg?fontsize=14&hidenavigation=1&theme=dark" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="hungry-firefly-ljvjg"></iframe>Each list is drag and drop. There are multiple lists to demonstrate how flexible and easy it is to add another list. The examples use an unordered list, an ordered list, divs, and finally Material UI List Items.
+{{< codesandbox hungry-firefly-ljvjg >}}
+
+Each list is drag and drop. There are multiple lists to demonstrate how flexible and easy it is to add another list. The examples use an unordered list, an ordered list, divs, and finally Material UI List Items.
 
 First, let’s look at the helper Components `DroppableList` and `DraggableListItem.` These are there to help clean up the boilerplate and make sure that the correct props and refs are used. React-beautiful-dnd uses a Context, props, and refs to keep track of exactly what is going on when you are dragging and dropping items. This is very powerful and flexible. Except that you have to make sure you apply everything correctly. This adds some boilerplate code to everywhere you want to drag and drop.
 
@@ -199,6 +200,6 @@ One final thing to note is that we define a styleFn. This will update the backgr
 
 ## Wrapping up Simple Examples of React Drag and Drop
 
-<https://codesandbox.io/s/hungry-firefly-ljvjg?file=/src/App.js>
+https://codesandbox.io/s/hungry-firefly-ljvjg?file=/src/App.js
 
 What if we wanted to drag between lists? We would wrap everything in one DragDropContext and add multiple DroppableLists with unique ids. Then we would update our function to handle updating the state.

@@ -5,8 +5,7 @@ date: '2011-08-13T19:31:59-04:00'
 author: 'Joshua Johanan'
 layout: page
 guid: 'http://ejosh.co/de/?page_id=63'
-dsq_thread_id:
-    - '848008391'
+disqus_identifier: '848008391'
 image: /wp-content/uploads/2011/08/bw_me-100x100.jpg
 ---
 

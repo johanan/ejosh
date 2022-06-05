@@ -43,7 +43,8 @@ Grab the files out the src folder from the Facebook SDK and add it to ZF’s Fac
 
 Now we have to change the name of the Facebook class for it to work with ZF. I am going to use [Aptana Studio](http://www.aptana.com/products/studio3/download) to edit the php files. Just like Zend Framework, if you haven’t checked it out you should. We are going to edit the facebook.php file and change the class name from Facebook to Facebook\_Facebook.
 
-```phprequire_once "base_facebook.php";
+```php
+require_once "base_facebook.php";
 
 /**
  * Extends the BaseFacebook class with the intent of using
@@ -55,8 +56,8 @@ class Facebook_Facebook extends BaseFacebook
 
 One more thing we have to update is the application.ini file for ZF. This should be located at application/configs/application.ini. We have to tell it that we added a folder in the library.
 
-```
-<pre class="brush: plain; highlight: [10]; title: ; notranslate" title="">[production]
+```text
+[production]
 phpSettings.display_startup_errors = 0
 phpSettings.display_errors = 0
 includePaths.library = APPLICATION_PATH "/../library"
@@ -85,9 +86,9 @@ Good question. It is for autoloading in ZF. When you use ZF you don’t need to 
 
 ```php
 $fb = New Facebook_Facebook(array(
-				'appId' => 'appid',
-				'secret' => 'appsecret',
-				));
+	'appId' => 'appid',
+	'secret' => 'appsecret',
+));
 ```
 
 ## Create our new class
@@ -140,8 +141,7 @@ The function \_\_callStatic will map whatever function you are trying to call wi
 
 Now let’s tell Zend Framework about our new namespace and facebook details.
 
-```
-<pre class="brush: plain; highlight: [11,14,15,28,28]; title: ; notranslate" title="">
+```text
 [production]
 phpSettings.display_startup_errors = 0
 phpSettings.display_errors = 0
@@ -227,8 +227,7 @@ Your user profile is
 			'//connect.facebook.net/en_US/all.js';
 			document.getElementById('fb-root').appendChild(e);
 		}());
-// &#93;&#93;></script>
-
+</script>
 ```
 
 First thing we do differently from the Facebook example is delete the require as ZF will do all the autoloading for us. We then take out the initialization code for the facebook object as our new class will do that. We then have to change all the references to $facebook to Josh\_Facebook. We also need to change the -&gt; to :: as we are calling static functions. If you have put in correct app settings into your application.ini you should be able to run this.

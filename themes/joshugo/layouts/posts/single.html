@@ -4,6 +4,19 @@
 <section id="content">
     <article>
         <h1>{{ .Title }}</h1>
+        <div class="meta">
+            {{- $author :=  .Site.Author.name -}}
+            {{- $authorLink :=  default .Site.Author.link | default .Site.Home.RelPermalink -}}
+            <span class="post-author">
+                <a href="{{ $authorLink | safeURL }}"><img src="{{ .Site.Author.gravatar }}?s=15" />{{ $author }}</a>
+            </span>
+            <small>
+                {{- with .Site.Params.dateformat | default "1.2.2006" | .PublishDate.Format -}}
+                    <time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                {{- end -}}
+                : <span>{{ .WordCount }} words</span>
+            </small>
+        </div>
         {{ with $imageSrc := .Params.featuredimage }}
             {{- $image := resources.Get . -}}
             {{ with $image }}

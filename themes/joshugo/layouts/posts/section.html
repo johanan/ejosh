@@ -3,7 +3,8 @@
 {{- end -}}
 
 {{- define "content" -}}
-    <div class="page archive">
+<h1>Posts</h1>
+    <div class="archive">
         {{- /* Title */ -}}
         <h2>
             {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}

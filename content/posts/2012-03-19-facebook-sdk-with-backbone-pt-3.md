@@ -1,6 +1,6 @@
 ---
 id: 168
-title: 'Facebook SDK with Backbone &#8211; pt 3'
+title: 'Facebook SDK with Backbone  pt 3'
 date: '2012-03-19T15:54:53-04:00'
 author: 'Joshua Johanan'
 layout: post

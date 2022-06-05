@@ -5,12 +5,15 @@ title: 'YACB: Yet Another Code Blog'
 theme: "joshugo"
 
 sectionPagesMenu: "main"
+googleAnalytics: GTM-WRQG68S
+disqusShortname: ejoshcode
 
 author:
   name: Joshua Johanan
+  gravatar: https://secure.gravatar.com/avatar/24025160393b461e60c21638367caa43
 
 params:
-  name: eJosh.co/de
+  name: josh.code
   
 
 permalinks:
@@ -26,3 +29,16 @@ menu:
       weight: 2
       name: "About Me"
       url: "/about-me"
+  footer:
+    - identifier: "posts"
+      weight: 1
+      name: "Posts"
+      url: "/posts/"
+    - identifier: "tags"
+      weight: 2
+      name: "Tags"
+      url: "/tags/"
+    - identifier: "categories"
+      weight: 3
+      name: "Categories"
+      url: "/categories/"

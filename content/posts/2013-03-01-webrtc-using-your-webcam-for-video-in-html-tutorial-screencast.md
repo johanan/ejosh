@@ -1,6 +1,6 @@
 ---
 id: 558
-title: 'WebRTC &#8211; Using your Webcam for video in HTML Tutorial (Screencast)'
+title: 'WebRTC  Using your Webcam for video in HTML Tutorial (Screencast)'
 date: '2013-03-01T18:38:30-05:00'
 author: 'Joshua Johanan'
 layout: post

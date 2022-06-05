@@ -1,6 +1,12 @@
 <footer>
-    Powered By <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo">Hugo</a>
-    | Theme joshugo
-    ⓒ <span itemprop="copyrightYear">{{ now.Year }}</span>
-    <span class="author" itemprop="copyrightHolder">&nbsp;<a href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}" target="_blank">{{ .Site.Author.name }}</a></span>
+    <ul>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.footer }}
+            <li><a class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+        {{ end }}
+    </ul>
+    Powered By <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo">Hugo</a> | Theme joshugo -> inspired by <a href="https://github.com/dillonzq/LoveIt">LoveIt</a>
+    <div>
+        <i class="far fa-copyright"></i><span itemprop="copyrightYear">{{ now.Year }}</span> | <span class="author" itemprop="copyrightHolder">&nbsp;<a href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}" target="_blank">{{ .Site.Author.name }}</a></span>
+    </div>
 </footer>

@@ -1,6 +1,6 @@
 ---
 id: 1221
-title: 'Trecco &#8211; my First iOS app'
+title: 'Trecco  my First iOS app'
 date: '2016-03-29T00:35:20-04:00'
 author: 'Joshua Johanan'
 layout: post
