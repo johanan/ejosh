@@ -17,4 +17,4 @@ categories:
 This video series mirrors the blog post series on creating a functional application in JavaScript. This will map closely with the third post of that series. We will cover how easy it is to setup testing when the code is functional.
 
 Watch and enjoy!  
-{{< youtube Di5gxfJsISI >}}
+{{< lite-youtube Di5gxfJsISI >}}

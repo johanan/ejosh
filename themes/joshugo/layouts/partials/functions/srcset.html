@@ -1,0 +1,21 @@
+{{- $alt := .alt -}}
+{{- with $res := resources.Get .src -}}
+    {{- $ws := slice 480 600 900 1200 1800 -}}
+    {{- $srcset := slice -}}
+    {{- range $ws -}}
+        {{/* to avoid creating an image that is larger than the source */}}
+        {{- if (le . $res.Width) -}}
+            {{- $w := printf "%dx webp q80" . -}}
+            {{- $url := ($res.Resize $w).RelPermalink | safeURL -}}
+            {{- $fmt := printf "%s %dw" $url . -}}
+            {{- $srcset = $srcset | append $fmt -}}
+        {{- end -}}
+    {{- end -}}
+    {{- $set := delimit $srcset "," -}}
+    <img
+        srcset="{{ $set }}"
+        sizes="(max-width: 480px) 480px, 75vw"
+        src="{{ $res.RelPermalink }}"
+        alt="{{ $alt }}"
+        height="auto"/>
+{{ end }}

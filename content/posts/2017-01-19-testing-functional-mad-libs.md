@@ -8,7 +8,6 @@ guid: 'https://ejosh.co/de/?p=1373'
 permalink: /2017/01/testing-functional-mad-libs/
 dsq_thread_id:
     - '5477756611'
-image: /wp-content/uploads/2017/01/Functional_testing_ouput.png
 categories:
     - Javascript
     - node.js

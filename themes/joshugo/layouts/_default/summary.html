@@ -5,6 +5,14 @@
     <h2 class="single-title" itemprop="name headline">
         <a href="{{ .RelPermalink }}">{{ .Title | emojify }}</a>
     </h2>
+    
+    {{ with $imageSrc := .Params.image }}
+            {{ $image := resources.Get . }}
+            {{ with $image }}
+            {{ $image = $image.Resize "300x webp" }}
+                <img src="{{ $image.RelPermalink }}" />
+            {{ end }}
+        {{ end }}
 
     {{- /* Meta */ -}}
     <div class="post-meta">

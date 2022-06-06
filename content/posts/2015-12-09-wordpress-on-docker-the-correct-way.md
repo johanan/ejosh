@@ -34,4 +34,4 @@ In addition to this you will learn about server provisioning with Ansible. Ansib
 ## The Videos
 
 There are three videos in this playlist.  
-<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/vFPOv3zn7eY?list=PLCxhJ1rikyTpo4Ji_fhWuidxuiB5dywNk" width="560"></iframe>
+{{< lite-youtube vFPOv3zn7eY >}}

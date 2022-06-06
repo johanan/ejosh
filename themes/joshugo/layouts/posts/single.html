@@ -17,11 +17,9 @@
                 : <span>{{ .WordCount }} words</span>
             </small>
         </div>
-        {{ with $imageSrc := .Params.featuredimage }}
-            {{- $image := resources.Get . -}}
-            {{ with $image }}
-                <img src="{{ .RelPermalink }}" />
-            {{ end }}
+        {{ with $imageSrc := .Params.image }}
+        {{ $options := dict "src" . "alt" ""}}
+            {{ partial "functions/srcset.html" $options }}
         {{ end }}
         {{ .Content }}
     </article>

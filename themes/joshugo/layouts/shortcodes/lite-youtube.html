@@ -1,0 +1,6 @@
+{{- $id := .Get "id" | default (.Get 0) -}}
+{{- $class := .Get "class" | default (.Get 1) -}}
+{{- $title := .Get "title" | default "YouTube Video" }}
+<lite-youtube videoid="{{ $id }}" style="max-width: none;" ></lite-youtube>
+<link href="https://unpkg.com/lite-youtube-embed/src/lite-yt-embed.css" rel="stylesheet">
+<script src="https://unpkg.com/lite-youtube-embed/src/lite-yt-embed.js"></script>

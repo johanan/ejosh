@@ -1,0 +1,3 @@
+{{- $alt := .Get "alt" -}}
+{{- $src := .Get "src" -}}
+{{ partial "functions/srcset" (dict "src" $src "alt" $alt) }}

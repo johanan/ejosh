@@ -21,4 +21,4 @@ tags:
 
 This is a screencast of the [Facebook SDK in Zend Framework](http://ejosh.co/de/2011/08/facebook-sdk-inside-of-zend-framework/ "Facebook SDK inside of Zend Framework") tutorial  
 
-{{< youtube _vjtI3w2SUU >}}
+{{< lite-youtube _vjtI3w2SUU >}}

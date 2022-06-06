@@ -8,12 +8,13 @@ guid: 'https://ejosh.co/de/?p=1279'
 permalink: /2016/12/secret-functional-programming-javascript/
 dsq_thread_id:
     - '5379968470'
-image: /wp-content/uploads/2016/12/functional_programming_in_javascript.jpg
 categories:
     - Javascript
 ---
 
 I just finished an amazing book by [Luis Atencio](http://luisatencio.net) named Functional Programming in JavaScript. It is published by Manning and you can purchase it [from Manning](https://www.manning.com/books/functional-programming-in-javascript).
+
+{{< srcset src="/wp-content/uploads/2016/12/functional_programming_in_javascript.jpg" alt="">}}
 
 If you have been reading my blog you will see that I have been trying to push myself further into the functional paradigm. I have been classically trained as an object oriented programmer, much like most of the programming world. The idea of functional programming initially just seemed weird and something that people talked about, but never really implemented. Although I was drawn to the compactness of code and ease in which someone can reason about what is happening.
 

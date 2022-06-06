@@ -1,6 +1,6 @@
 ---
 id: 1290
-title: 'I found a functional way to build Express&#8217;s middleware'
+title: 'I found a functional way to build Express middleware'
 date: '2016-12-20T08:00:47-05:00'
 author: 'Joshua Johanan'
 layout: post

@@ -18,12 +18,13 @@ tags:
 
 <div class="action-button">[Download](https://github.com/johanan/Ansible-and-Docker) the src(github).</div>#### Blog Post Series
 
-<div class="action-button">[Ansible for Server Provisioning](https://ejosh.co/de/2015/05/ansible-for-server-provisioning/)</div><div class="action-button">[WordPress and Docker the correct way](https://ejosh.co/de/2015/08/wordpress-and-docker-the-correct-way/)</div><div class="action-button">[How to link Docker containers together](https://ejosh.co/de/2015/09/how-to-link-docker-containers-together/)</div>We now have a good foundation to build our WordPress site off of. Docker is installed and ready. We will quickly cover why Docker, some best practices, and finally the actual how of our Docker containers. Much like the previous post, this is not designed to be an introduction to Docker. There are literally thousands of intro to Docker articles and by the time I publish this that number will have doubled. Sign up to any tech newsletter and you will easily see five “Intro to Docker” articles every week. If you want an introduction, go to the official Docker site and you there is an [interactive tutorial](https://www.docker.com/tryit/).
+<div class="action-button">[Ansible for Server Provisioning](https://ejosh.co/de/2015/05/ansible-for-server-provisioning/)</div><div class="action-button">[WordPress and Docker the correct way](https://ejosh.co/de/2015/08/wordpress-and-docker-the-correct-way/)</div><div class="action-button">[How to link Docker containers together](https://ejosh.co/de/2015/09/how-to-link-docker-containers-together/)</div>
+
+We now have a good foundation to build our WordPress site off of. Docker is installed and ready. We will quickly cover why Docker, some best practices, and finally the actual how of our Docker containers. Much like the previous post, this is not designed to be an introduction to Docker. There are literally thousands of intro to Docker articles and by the time I publish this that number will have doubled. Sign up to any tech newsletter and you will easily see five “Intro to Docker” articles every week. If you want an introduction, go to the official Docker site and you there is an [interactive tutorial](https://www.docker.com/tryit/).
 
 I would also like to point out that if you have followed along or forked my Github repo, you will have a Vagrant machine that has Docker on it by running:
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```shell
 $ vagrant up
 $ ansible-playbook -i ./.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory ../ansible/docker.yml
 ```
@@ -44,7 +45,7 @@ First we will look at what Docker has to say about containers. Docker themselves
 
 > In almost all cases, you should only run a single process in a single container. Decoupling applications into multiple containers makes it much easier to scale horizontally and reuse containers. If that service depends on another service, make use of container linking.
 > 
-> <footer>[Best practices for writing Dockerfiles](https://docs.docker.com/articles/dockerfile_best-practices/)</footer>
+> [Best practices for writing Dockerfiles](https://docs.docker.com/articles/dockerfile_best-practices/)
 
 Next, please read [If you run SSHD in your Docker containers, you’re doing it wrong!](http://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/). The article is a little dated, but the sentiment is still valid. It is written by Jérôme Petazzoni, who works for Docker and has the title Tinkerer Extraordinaire. I completely agree with this. There is not a reason to SSH into a container.
 
@@ -100,8 +101,7 @@ This is based on the official [MySQL container](https://registry.hub.docker.com/
 
 Here is the Dockerfile
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```dockerfile
 FROM mysql:5.6
 
 COPY wp_backup.sql /tmp/
@@ -113,8 +113,7 @@ This makes sure we have our database backup in the container, `load_db.sh` to lo
 
 Here is load\_db.sh
 
-```
-<pre class="brush: bash; title: ; notranslate" title="">
+```bash
 #!/bin/bash
 echo "use $MYSQL_DATABASE;" | cat - /tmp/wp_backup.sql > temp && mv temp /tmp/wp_backup.sql
 mysql -uroot -p$MYSQL_ROOT_PASSWORD < /tmp/wp_backup.sql && rm /tmp/wp_backup.sql
@@ -124,8 +123,7 @@ This file creates a use statement at the top of the backup, so it will have the 
 
 Here is backup.sh
 
-```
-<pre class="brush: bash; title: ; notranslate" title="">
+```bash
 #!/bin/bash
 MYSQL_PWD=$MYSQL_ROOT_PASSWORD mysqldump -hlocalhost -uroot $MYSQL_DATABASE
 ```
@@ -160,8 +158,7 @@ This container will be the process that actually runs PHP. We will use PHP-fpm a
 
 Dockerfile
 
-```
-<pre class="brush: bash; title: ; notranslate" title="">
+```dockerfile
 FROM debian:jessie
 
 RUN apt-get update && \
@@ -184,8 +181,7 @@ For the next few files I will highlight the differences between the default file
 
 www.conf
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```php
 ...
 listen = 9000
 ...
@@ -202,8 +198,7 @@ Listen should be explanatory. Then we are filling the environment for PHP with c
 
 php-fpm.conf
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```text
 ...
 error_log = /dev/stderr
 ```
@@ -212,8 +207,7 @@ Make sure that logging goes to `stderr` for docker.
 
 supvisord.conf
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```text
 [supervisord]
 nodaemon=true
 
@@ -240,8 +234,7 @@ We are running two Nginx servers in this chain. The backend container will be th
 
 Dockerfile
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```dockerfile
 FROM nginx:1.9
 
 COPY default.templ /etc/nginx/conf.d/default.templ
@@ -259,8 +252,7 @@ Hopefully this is very clear what this file is doing. We start from the official
 
 default.templ
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```text
 server {
   listen 80 default_server;
   listen [::]:80 default_server ipv6only=on;
@@ -302,8 +294,7 @@ The nginx.conf file is very straight forward. In fact you should be able to just
 
 start-nginx.sh
 
-```
-<pre class="brush: bash; title: ; notranslate" title="">
+```bash
 #!/bin/bash
 
 for name in PHP_PORT_9000_TCP_ADDR
@@ -319,14 +310,12 @@ This takes a environment variable loads the value of it and then replaces any re
 
 site-normal and site-upgrade respectively.
 
-```
-<pre class="brush: bash; title: ; notranslate" title="">
+```bash
 #!/bin/bash
 chown -R root:www-data /var/www/html/ejosh/
 ```
 
-```
-<pre class="brush: bash; title: ; notranslate" title="">
+```bash
 #!/bin/bash
 chown -R www-data:www-data /var/www/html/ejosh/
 ```
@@ -347,8 +336,7 @@ The site was able to handle the load as every request after the first were just 
 
 Dockerfile
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```dockerfile
 FROM debian:jessie
 
 RUN apt-get update && \
@@ -373,8 +361,7 @@ This starts with plain old Debian and installs varnish. It then pulls in the con
 
 I am not going to show the entire default.templ file as it is large and most of it is not related to what we are doing with Docker. It is, for the most part, a common varnish config for WordPress. WordPress needs a complicated config file as it is a dynamic application. Certain things we will want to cache and others we will not. You can view the file in [github](https://github.com/johanan/Ansible-and-Docker/blob/master/docker/varnish/default.templ). Here is just the docker related portion.
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```text
 ...
 backend default {
     .host = "${BACKEND_PORT_80_TCP_ADDR}";
@@ -397,8 +384,7 @@ Here we are setting our backend Nginx server as the backend default. This is the
 
 start-varnish.sh
 
-```
-<pre class="brush: bash; title: ; notranslate" title="">
+```bash
 #!/bin/bash
 
 for name in BACKEND_PORT_80_TCP_ADDR
@@ -418,8 +404,7 @@ This container is going to be the actual container that serves the Internet. Hav
 
 Dockerfile
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```dockerfile
 FROM nginx:1.9
 
 COPY nginx.crt /etc/nginx/ssl/nginx.crt
@@ -437,8 +422,7 @@ We are going to have three different server blocks in our default.templ. The fir
 
 Here are the lines that are docker related in default.templ.
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```text
 server {
         ...
 	location / {
@@ -469,8 +453,7 @@ We are just proxying the requests to the other containers.
 
 nginx.conf is a basic Nginx config file. There is nothing new or interesting there. We will finish off looking at start-nginx.sh.
 
-```
-<pre class="brush: bash; title: ; notranslate" title="">
+```bash
 #!/bin/bash
 
 cp /etc/nginx/conf.d/default.templ /etc/nginx/conf.d/default.conf

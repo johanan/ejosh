@@ -19,4 +19,4 @@ tags:
 This video series mirrors the blog post series on creating a functional application in JavaScript. This will map closely with the second post of that series. We will cover putting our functional backend together with the DOM. This is where the application becomes a useful item and not just a bunch of functions. In addition to this, we will cover fundamentally why React and Redux are awesome. While we do not use the actual React and Redux libraries, we use the same thinking behind our render functions and state management.
 
 Watch and enjoy!  
-<iframe allowfullscreen="" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/U3VNbnxTyoM?list=PLCxhJ1rikyTofZMjBeQI9ceLCZwPNLAsl" width="560"></iframe>
+{{< lite-youtube U3VNbnxTyoM >}}
