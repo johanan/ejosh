@@ -12,9 +12,10 @@ categories:
     - Javascript
 tags:
     - functional
+repo: https://github.com/johanan/Functional-Mad-Libs
+demo: https://johanan.github.io/Functional-Mad-Libs
 ---
-
-<div class="action-button">[Download](https://github.com/johanan/Functional-Mad-Libs) the src(github)</div><div class="action-button">[View](https://johanan.github.io/Functional-Mad-Libs/) the demo</div>I am continuing my path towards functional programming that I have been dabbling with the last year or so. This usually meant I would build things object-oriented for the most part, but then anytime an Array popped up I would transform it using functional patterns. This is pretty easy and does not force me to get uncomfortable. Although it is still very useful as there are many times collections come up. I just finished a great book called Functional Programming in JavaScript which I have [reviewed](https://ejosh.co/de/2016/12/secret-functional-programming-javascript/). I learned new ways of writing code and I want to try them out.
+I am continuing my path towards functional programming that I have been dabbling with the last year or so. This usually meant I would build things object-oriented for the most part, but then anytime an Array popped up I would transform it using functional patterns. This is pretty easy and does not force me to get uncomfortable. Although it is still very useful as there are many times collections come up. I just finished a great book called Functional Programming in JavaScript which I have [reviewed](https://ejosh.co/de/2016/12/secret-functional-programming-javascript/). I learned new ways of writing code and I want to try them out.
 
 Which leads me to the focus of this post. I have built a functional Mad Libs site. This came from a joke filled conversation at work about Mad Libs. The great thing about Mad Libs is that it is a perfect functional problem. There is a list of words. Some of the words need to be replaced. Get new words. Then replace the old with the new. This is an easy computational problem. I wanted to make the entire process as functional as I could. Let’s get started.
 
@@ -40,8 +41,7 @@ Let’s jump into the actual code. First, we will start at the lowest level with
 
 The functions we will look at next really are the most basic building blocks of the application. Despite the fact that the are really important, the functions are actually really simple. This is one of the greatest advantages when building functionally. Let’s take a look at these functions.
 
-```
-<pre class="brush: jscript; title: basic_functions.js; notranslate" title="basic_functions.js">
+```js
 module.exports.filterFunc = (type, term) =&amp;amp;amp;gt; term.pos[type] !== undefined;
 module.exports.addField = (field, term, value) =&amp;amp;amp;gt; {
   return Object.assign({}, term, {[field]: value})
@@ -55,8 +55,7 @@ There are three functions here. Two are functions that will fit right into filte
 
 There are two other functions that I needed to create. They filled the need of splitting an array, applying a function to a part of it, and then recombining the array back. This happens when marking certain words as Mad Libs and also when replacing the words. Here are the functions.
 
-```
-<pre class="brush: jscript; title: higher_order_functions.js; notranslate" title="higher_order_functions.js">
+```js
 const R = require('ramda');
 
 module.exports.splitArray = R.curry((func, a) =&amp;amp;amp;gt; {

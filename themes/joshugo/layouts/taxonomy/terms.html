@@ -9,13 +9,13 @@
 
     <div class="page archive">
         {{- /* Title */ -}}
-        <h2 class="single-title animate__animated animate__pulse animate__faster">
+        <h2>
             {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}
         </h2>
 
         {{- /* Categories Page */ -}}
         {{- if eq $taxonomies "categories" -}}
-            <div class="categories-card">
+            <div>
                 {{- range $terms -}}
                     {{- $term := .Term -}}
                     {{- $pages := .Pages -}}
@@ -36,7 +36,7 @@
                             {{- end -}}
                             {{- if gt (len $pages) 5 -}}
                                 <span class="more-post">
-                                    <a href="{{ .RelPermalink }}" class="more-single-link">{{ T "more" }} >></a>
+                                    <a href="{{ .RelPermalink }}" class="more-single-link">More >></a>
                                 </span>
                             {{- end -}}
                         </div>

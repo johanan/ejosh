@@ -20,4 +20,4 @@ This is a talk I gave for a local [Meetup](http://www.meetup.com/localvariables/
 [Presentation Slides](https://docs.google.com/presentation/d/12qaiOlOE-9uOU8jmetugCi1FDFnG9T79ge4oY8Y2wR0)  
 [Github Repo](https://github.com/johanan/Local-Variables-React-August-2015)
 
-<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/GY0bsYM_zRs" width="560"></iframe>
+{{< lite-youtube GY0bsYM_zRs >}}
