@@ -2,4 +2,8 @@
 {{ $style := resources.Get "css/style.scss" | resources.ToCSS $options }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel='preload' as="style" onload="this.onload=null;this.rel='stylesheet'" id='google-font-merriweather'  href='https://fonts.googleapis.com/css2?family=Merriweather:wght@400;900&display=swap' type='text/css' media='all' />
+<link rel='preload' as="style" onload="this.onload=null;this.rel='stylesheet'" id='google-font-montserrat'  href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap' type='text/css' media='all' />

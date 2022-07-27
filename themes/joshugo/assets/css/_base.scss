@@ -5,7 +5,7 @@
     --global-font-weight: #{$global-font-weight};
     --global-line-height: #{$global-line-height};
 
-    --global-body-font-family:  #{$global-body-font-family};
+    --global-header-font-family:  #{$global-header-font-family};
 
     --header-height: 3.5rem;
     --content-padding: 4.5rem;
@@ -105,9 +105,13 @@ main {
         }
 
         @include for-desktop-up {
-            max-width: 75%;
+            max-width: 860px;
         }
     }
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--global-header-font-family);
 }
 
 #profile {
