@@ -13,6 +13,7 @@
     // colors
     --gray1: #f8f8f8;
     --gray4: #333333;
+    --gray5: #272822;
     --gray6: #161209;
   }
 
@@ -85,6 +86,23 @@ header {
             padding: 0.5rem;
         }
     }
+}
+
+blockquote {
+    border: 0 solid #1a1a1a;
+    border-left-width: 0.25rem;
+    color: #686868;
+    font-size: 1.1875rem;
+    font-style: italic;
+    line-height: 1.5rem;
+    margin: 0 0 1.4736842105em;
+    overflow: hidden;
+    padding: 0 0 0 1.263157895em;
+}
+
+:not(pre) > code {
+    background-color: var(--gray1);
+    padding: 0.25rem;
 }
 
 main {
