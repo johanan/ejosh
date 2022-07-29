@@ -6,15 +6,13 @@ author: 'Joshua Johanan'
 layout: post
 guid: 'https://ejosh.co/de/?p=1127'
 permalink: /2015/12/wordpress-on-docker-the-correct-way/
+github: https://github.com/johanan/Dockerized-Wordpress-the-Correct-way
 dsq_thread_id:
     - '4390835377'
-image: /wp-content/uploads/2015/12/wordpress-on-docker-the-correct.jpg
+image: /wp-content/uploads/2015/12/wordpress-on-docker-the-correct.webp
 categories:
     - Docker
 ---
-
-<https://github.com/johanan/Dockerized-Wordpress-the-Correct-way>
-
 I have created a three video series on running WordPress in Docker. This is different than my previous [posts](https://ejosh.co/de/2015/05/ansible-for-server-provisioning/) on Docker and WordPress. The posts I had written before focused mainly on my journey of moving my site to Docker. This means that many pieces were directly tied to my implementation. These videos and code does not have that requirement. The repository can be used to create a WordPress site from scratch and having running in the cloud in just a few minutes.
 
 ## WordPress on Docker the Correct way

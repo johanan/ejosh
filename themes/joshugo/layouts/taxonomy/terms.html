@@ -10,7 +10,7 @@
     <div class="page archive">
         {{- /* Title */ -}}
         <h2>
-            {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}
+            {{- .Params.Title | default $taxonomies -}}
         </h2>
 
         {{- /* Categories Page */ -}}
@@ -27,17 +27,12 @@
                                     <i class="far fa-folder fa-fw" aria-hidden="true"></i>&nbsp;{{ .Page.Title }}
                                 </a>
                             </h3>
-                            {{- range first 5 $pages -}}
+                            {{- range $pages -}}
                                 <article class="archive-item">
                                     <a href="{{ .RelPermalink }}" class="archive-item-link">
                                         {{- .Title | emojify -}}
                                     </a>
                                 </article>
-                            {{- end -}}
-                            {{- if gt (len $pages) 5 -}}
-                                <span class="more-post">
-                                    <a href="{{ .RelPermalink }}" class="more-single-link">More >></a>
-                                </span>
                             {{- end -}}
                         </div>
                     </div>

@@ -10,12 +10,17 @@
             <span class="post-author">
                 <a href="{{ $authorLink | safeURL }}"><img src="{{ .Site.Author.gravatar }}?s=15" />{{ $author }}</a>
             </span>
-            <small>
+            <span>
                 {{- with .Site.Params.dateformat | default "1.2.2006" | .PublishDate.Format -}}
                     <time datetime="{{ . }}">{{ . }}</time>&nbsp;
                 {{- end -}}
                 : <span>{{ .WordCount }} words</span>
-            </small>
+            </span>
+            {{- with .Params.github -}}
+            <div>
+                <a href="{{.}}"><i class="fab fa-github"></i> src repository for the code</a>
+            </div>
+            {{- end -}}
         </div>
         {{ with $imageSrc := .Params.image }}
         {{ $options := dict "src" . "alt" ""}}

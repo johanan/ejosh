@@ -56,13 +56,13 @@
 
     {{- /* Footer */ -}}
     <div class="post-footer">
-        <a href="{{ .RelPermalink }}">{{ i18n "readMore" }}</a>
+        <a href="{{ .RelPermalink }}">Read More</a>
         {{- with .Params.tags -}}
             <div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;
                 {{- range $index, $value := . -}}
                     {{- if gt $index 0 }},&nbsp;{{ end -}}
-                    {{- $tag := $value | printf "/tags/%v" | $.Site.GetPage -}}
+                    {{- $tag := $value | urlize | printf "/tags/%v" | $.Site.GetPage -}}
                     <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
                 {{- end -}}
             </div>

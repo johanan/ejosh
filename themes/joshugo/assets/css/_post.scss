@@ -38,6 +38,16 @@
         flex-flow: column wrap;
         align-content: space-between;
         font-weight: 600;
-        height: 1rem;
+
+        & > * {
+            flex-basis: 100%;
+        }
+
+        @include for-desktop-up {
+            flex-flow: row wrap;
+            & > * {
+                flex: 1 1;
+            }
+        }
     }
 }

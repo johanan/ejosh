@@ -13,8 +13,6 @@
     {{- end -}}
     {{- $set := delimit $srcset "," -}}
     <img
-        srcset="{{ $set }}"
-        sizes="(max-width: 480px) 480px, 75vw"
         src="{{ $res.RelPermalink }}"
         alt="{{ $alt }}"
         height="auto"/>
