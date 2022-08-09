@@ -21,9 +21,7 @@ While I was waiting on Packt to send me some finalized videos as a preview, I re
 > 
 > — Vlad Bezden (@VladBezden) [October 8, 2016](https://twitter.com/VladBezden/status/784807512822444032?ref_src=twsrc%5Etfw)
 
-<script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
-
 Enough talking about the course, here are two videos that demonstrate the content of the course. Enjoy!
 
-<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/0o3Ro2vStH4" width="560"></iframe>  
-<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/rnBuExnbL_E" width="560"></iframe>
+{{< lite-youtube 0o3Ro2vStH4 >}}
+{{< lite-youtube rnBuExnbL_E >}}

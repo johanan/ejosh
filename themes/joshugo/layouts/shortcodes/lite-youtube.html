@@ -1,6 +1,6 @@
-{{- $id := .Get "id" | default (.Get 0) -}}
+{{- $id := .Get "videoid" | default (.Get 0) -}}
 {{- $class := .Get "class" | default (.Get 1) -}}
 {{- $title := .Get "title" | default "YouTube Video" }}
-<lite-youtube videoid="{{ $id }}" style="max-width: none;" ></lite-youtube>
-<link href="https://unpkg.com/lite-youtube-embed/src/lite-yt-embed.css" rel="stylesheet">
-<script src="https://unpkg.com/lite-youtube-embed/src/lite-yt-embed.js"></script>
+{{- $quality := .Get "posterquality" | default "hqdefault"}}
+<lite-youtube title="{{ $title }}" videoid="{{ $id }}" style="max-width: none;" posterquality="{{ $quality }}" autoload></lite-youtube>
+<script type="module" defer src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.4.0/lite-youtube.js"></script>

@@ -35,12 +35,16 @@
 
     .post-nav {
         display: flex;
-        flex-flow: column wrap;
+        flex-flow: row wrap;
         align-content: space-between;
         font-weight: 600;
 
         & > * {
             flex-basis: 100%;
+        }
+
+        & > *:last-child {
+            text-align: right;
         }
 
         @include for-desktop-up {
