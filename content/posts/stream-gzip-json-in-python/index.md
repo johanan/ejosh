@@ -1,7 +1,8 @@
 ---
 title: "Stream a Massive Gzipped Json File in Python"
 date: 2022-08-14T20:27:14-04:00
-draft: true
+tags:
+    - python
 ---
 I found myself with the problem of having to process massive JSON files that were gzipped. The files were 6.8GB gzipped and over 50GB un-gzipped (de-gzipped?).
 
