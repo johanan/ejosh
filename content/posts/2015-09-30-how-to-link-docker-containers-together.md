@@ -6,6 +6,7 @@ author: 'Joshua Johanan'
 layout: post
 guid: 'http://ejosh.co/de/?p=1036'
 permalink: /2015/09/how-to-link-docker-containers-together/
+github: https://github.com/johanan/Ansible-and-Docker
 dsq_thread_id:
     - '4182134375'
 image: /wp-content/uploads/2015/04/docker.png
@@ -18,16 +19,21 @@ tags:
 
 This is the third post in a series about moving my WordPress blog into the cloud using Docker.
 
-<div class="action-button">[Download](https://github.com/johanan/Ansible-and-Docker) the src(github).</div>#### Blog Post Series
+#### Blog Post Series
 
-<div class="action-button">[Ansible for Server Provisioning](https://ejosh.co/de/2015/05/ansible-for-server-provisioning/)</div><div class="action-button">[WordPress and Docker the correct way](https://ejosh.co/de/2015/08/wordpress-and-docker-the-correct-way/)</div><div class="action-button">[How to link Docker containers together](https://ejosh.co/de/2015/09/how-to-link-docker-containers-together/)</div>At this point we have a bunch of docker images, but no docker containers running. We will fix that in this post. We will look at [docker-compose](https://docs.docker.com/compose/) and how it orchestrates bringing up all of our docker containers. Then we will look at some administrative tasks in docker. This includes backing up the site and keeping logs.
+[Ansible for Server Provisioning](https://ejosh.co/de/2015/05/ansible-for-server-provisioning/)
+
+[WordPress and Docker the correct way](https://ejosh.co/de/2015/08/wordpress-and-docker-the-correct-way/)
+
+[How to link Docker containers together](https://ejosh.co/de/2015/09/how-to-link-docker-containers-together/)
+
+At this point we have a bunch of docker images, but no docker containers running. We will fix that in this post. We will look at [docker-compose](https://docs.docker.com/compose/) and how it orchestrates bringing up all of our docker containers. Then we will look at some administrative tasks in docker. This includes backing up the site and keeping logs.
 
 ## Bringing up Docker containers with docker-compose
 
 [Docker-compose](https://docs.docker.com/compose/) is a tool from Docker that allows us to define how each container will fit in our application. It makes for a single command to get everything up and running. Docker-compose should already be installed on our target machine by Ansible. First thing we will do is look at our `docker-compose.yml` which configures everything.
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```yaml
 mysql:
   build: ./mysql
   environment:
@@ -98,8 +104,7 @@ Next we bring up a varnish container. It has a link to the backend Nginx server.
 
 The docker-compose.yml file is a definition of which containers and how they work together. This is great as it makes building, removing, and bringing up these containers scriptable and repeatable. In our Ansible directory we have a directory named tasks. An Ansible task is similar to a role except it only has commands. One of the tasks is `docker_compose_rebuild.yml`. Here is the file:
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```yaml
 ---
   - name: Stop {{ service }}
     command: chdir={{ work_dir }} docker-compose stop {{ service }}
@@ -129,16 +134,14 @@ We now will look at some administrative tasks. The tasks are more difficult beca
 
 We will use logrotate to rotate our Docker logs. No one would have guessed! We use Ansible to copy our logrotate configuration file to `/etc/logrotate.d/docker`. Here is the Ansible task:
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```yaml
   - name: create the logrotate conf for docker
     copy: src=logrotate_docker dest=/etc/logrotate.d/docker
 ```
 
 Here is the file logrotate-docker:
 
-```
-<pre class="brush: plain; title: ; notranslate" title="">
+```text
 /var/lib/docker/containers/*/*-json.log {
   size 5120k
   rotate 5
@@ -154,8 +157,7 @@ I would like to note that with Docker [log drivers](https://docs.docker.com/refe
 
 We will look at how to get a backup of the database and our site’s directory out of the container. Technically our data is on the host, but I want to show ways of getting data out of containers. Here is the backup script that is copied to the host:
 
-```
-<pre class="brush: bash; title: ; notranslate" title="">
+```bash
 #!/bin/bash
 WEEK=$((($(date +%e)-1)/7+1))
 docker exec -t blog_mysql_1 /backup.sh > /tmp/wp_backup.sql && tar -zcvf /tmp/wp_backup$WEEK.sql.tar.gz /tmp/wp_backup.sql

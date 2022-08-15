@@ -6,9 +6,9 @@ author: 'Joshua Johanan'
 layout: post
 guid: 'http://ejosh.co/de/?p=1024'
 permalink: /2015/08/my-talk-on-react/
+github: https://github.com/johanan/Local-Variables-React-August-2015
 dsq_thread_id:
     - '4070615884'
-image: /wp-content/uploads/2015/02/imgres.png
 categories:
     - Javascript
 tags:

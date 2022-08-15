@@ -61,6 +61,3 @@ console.log(comparer.compare(5,1));
 The compare function just executes another function. This means that we can change it out whenever we need to. The best part is that the new function does not need to know about the current object as it will all of its context passed to it by `apply`.
 
 I have a real world example of this in my Webcam library. The library has a draw function, but we can change it out whenever we want. The new function will have access to a canvas, the 2d context, the 3d context, and the video stream. We can see the code on [line 130 in video.js](https://github.com/johanan/WebCamVidja/blob/master/src/video.js#L130).
-
-Here are all the examples in jsFiddle.  
-<iframe allowfullscreen="allowfullscreen" frameborder="0" height="300" loading="lazy" src="//jsfiddle.net/jjohanan/qnq4vnn0/embedded/" width="100%"></iframe>

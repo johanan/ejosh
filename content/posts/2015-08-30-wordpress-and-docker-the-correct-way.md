@@ -20,7 +20,9 @@ tags:
 #### Blog Post Series
 
 [Ansible for Server Provisioning](https://ejosh.co/de/2015/05/ansible-for-server-provisioning/)
+
 [WordPress and Docker the correct way](https://ejosh.co/de/2015/08/wordpress-and-docker-the-correct-way/)
+
 [How to link Docker containers together](https://ejosh.co/de/2015/09/how-to-link-docker-containers-together/)
 
 We now have a good foundation to build our WordPress site off of. Docker is installed and ready. We will quickly cover why Docker, some best practices, and finally the actual how of our Docker containers. Much like the previous post, this is not designed to be an introduction to Docker. There are literally thousands of intro to Docker articles and by the time I publish this that number will have doubled. Sign up to any tech newsletter and you will easily see five “Intro to Docker” articles every week. If you want an introduction, go to the official Docker site and you there is an [interactive tutorial](https://www.docker.com/tryit/).

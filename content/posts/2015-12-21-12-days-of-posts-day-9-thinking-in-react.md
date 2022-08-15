@@ -20,7 +20,7 @@ What makes React functional? Functional programming gets its name from Mathemati
 
 > a function is a relation between a set of inputs and a set of permissible outputs with the property that each input is related to exactly one output.
 > 
-> <footer>–[Wikipedia](https://en.wikipedia.org/wiki/Function_(mathematics))</footer>
+> –[Wikipedia](https://en.wikipedia.org/wiki/Function_(mathematics))
 
 This means that we should build React components in such a way that they will only have one output for each input. This may seem simple, but becomes harder the more we think about it.
 
@@ -32,5 +32,6 @@ The core idea of React is to build composable components. This means that we sta
 
 There is a good question to be asked. If all components do not hold state, how do we have an actual application? Does state not have to be changed? If no state is changed, did we not just create a static HTML page? All good questions. We will look at them tomorrow.
 
-Here is a presentation I gave at a local meetup where I cover thinking in React.  
-<iframe allowfullscreen="" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/GY0bsYM_zRs?list=PLCxhJ1rikyTroVAW_aCYcQ5xuZVitCb9o" width="560"></iframe>
+Here is a presentation I gave at a local meetup where I cover thinking in React. 
+
+{{< lite-youtube GY0bsYM_zRs>}}

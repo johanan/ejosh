@@ -20,8 +20,7 @@ This is where Consul comes in. This means that when a container comes up it can 
 
 Unfortunately I do not have any real examples other than you can play around with Consul in Docker with this command.
 
-```
-<pre class="brush: bash; title: ; notranslate" title="">
+```bash
 docker run -d --name=consul --net=host gliderlabs/consul-server -bootstrap
 ```
 

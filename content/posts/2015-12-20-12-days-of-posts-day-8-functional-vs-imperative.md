@@ -46,6 +46,3 @@ Slice();
 console.log('This is not');
 Splice();
 ```
-
-Here is the example on jsFiddle:  
-<iframe allowfullscreen="allowfullscreen" frameborder="0" height="300" loading="lazy" src="//jsfiddle.net/jjohanan/52oxnptk/embedded/" width="100%"></iframe>

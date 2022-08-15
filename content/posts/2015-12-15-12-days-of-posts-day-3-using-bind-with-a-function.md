@@ -60,6 +60,3 @@ boundAddTen(5);
 ```
 
 The `add` function does not do anything with `this` so it does not really matter what we use. We then pass in the first parameter so that a new function will be returned that will accept one parameter.
-
-Here are all the examples on jsFiddle  
-<iframe allowfullscreen="allowfullscreen" frameborder="0" height="300" loading="lazy" src="//jsfiddle.net/jjohanan/Lskamqvc/3/embedded/" width="100%"></iframe>
