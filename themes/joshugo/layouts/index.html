@@ -1,7 +1,7 @@
 {{ define "content" }}
 <section id="profile">
     <a href="posts/">
-        <img src="https://secure.gravatar.com/avatar/24025160393b461e60c21638367caa43?s=200" />
+        <img src="https://secure.gravatar.com/avatar/24025160393b461e60c21638367caa43?s=200" width="200" height="200" alt="Image of Joshua Johanan hiking with his dog" loading="lazy"/>
     </a>
     <h1>I'm Joshua Johanan and this is a blog about writing code</h1>
     <ul>
@@ -12,10 +12,13 @@
 </section>
 
 <section style="margin-top: 5rem;">
-    {{ range first 10 .Site.RegularPages }}
-        <div>
-            {{- .Render "summary" -}}
-        </div>
-    {{ end }}
+    {{- if .Paginator.Pages -}}
+        {{- range .Paginator.Pages -}}
+            <article class="archive-item">
+                {{- .Render "summary" -}}
+            </article>
+        {{- end -}}
+        {{ template "_internal/pagination.html" . }}
+    {{- end -}}
 </section>
 {{ end }}

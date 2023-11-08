@@ -2,6 +2,9 @@
 title: "Migrating From Wordpress to Hugo"
 date: 2022-06-06T21:26:36-04:00
 author: "Joshua Johanan"
+layout: post
+image: DALL-E_hugo.webp
+imageAlt: DALL-E created image showing Hugo on a hill
 ---
 
 I recently migrated this site from Wordpress to Hugo. The site had been on Wordpress since 2011. I had wanted to do something different than Wordpress for a few years, but I never knew what I would migrate to. I looked into static site generators which lead me to [Hugo](https://gohugo.io/). Wordpress made starting a blog easy. I definitely would recommend it to anyone that wants to write their thoughts down, provided that it is through one of the many hosted Wordpress sites. You will trade website performance for easy of use. Once you start taking on any of the technical aspects of a site, switch to Hugo.
