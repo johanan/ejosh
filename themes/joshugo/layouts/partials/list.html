@@ -1,0 +1,9 @@
+{{- if .Paginator.Pages -}}
+    {{- range .Paginator.Pages -}}
+        <article class="archive-item">
+            {{- .Render "summary" -}}
+        </article>
+        <hr class="small-divider">
+    {{- end -}}
+    {{ template "_internal/pagination.html" . }}
+{{- end -}}

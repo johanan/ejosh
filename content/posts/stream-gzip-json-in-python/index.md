@@ -1,6 +1,8 @@
 ---
 title: "Stream a Massive Gzipped Json File in Python"
 date: 2022-08-14T20:27:14-04:00
+image: DALL-E_python_waterfall.webp
+imageAlt: DALL-E created image of the Python logo as the source of data waterfall
 tags:
     - python
 ---

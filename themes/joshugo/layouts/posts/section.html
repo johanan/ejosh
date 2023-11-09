@@ -11,13 +11,6 @@
         </h2>
 
         {{- /* Paginate */ -}}
-        {{- if .Paginator.Pages -}}
-            {{- range .Paginator.Pages -}}
-                <article class="archive-item">
-                    {{- .Render "summary" -}}
-                </article>
-            {{- end -}}
-            {{ template "_internal/pagination.html" . }}
-        {{- end -}}
+        {{ partial "list" . }}
     </div>
 {{- end -}}

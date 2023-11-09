@@ -1,0 +1,2 @@
+{{ $js := resources.Get "js/main.js" | js.Build (dict "targetPath" "main.js" "minify" true "format" "esm") }}
+<script src="{{ $js.RelPermalink }}" defer></script>

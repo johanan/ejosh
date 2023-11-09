@@ -47,7 +47,7 @@ body {
 header {
     width: 100%;
     z-index: 150;
-    background-color: var(--gray1);
+    background-color: #ffffff;
     display: block;
     position: fixed;
     height: var(--header-height);
@@ -55,8 +55,8 @@ header {
     overflow: hidden;
     transition: box-shadow 0.3s ease;
 
-    &:hover {
-        box-shadow: rgba(37, 37, 37, 0.3) 0 0 1rem 0;
+    &:hover, &.is-sticky {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px
     }
 
     a {
@@ -189,3 +189,11 @@ h1, h2, h3, h4 {
     background-color: var(--gray4);
     border: 1px solid var(--gray4);
 }
+
+hr.small-divider {
+    width: 50%; /* Adjust the width as needed */
+    border: 0; /* Remove the default border */
+    border-top: 1px solid rgba(102, 102, 102, 0.25);
+    margin: 20px auto 20px 0; /* Center the hr and add some vertical spacing */
+  }
+  
