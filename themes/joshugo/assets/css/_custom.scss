@@ -1,0 +1,32 @@
+.gpt-chat {
+    gap: .75rem;
+    display: flex;
+    padding-bottom: 8px;
+    padding-top: 8px;
+
+    & .gpt-response {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+}
+
+.gpt-user, .gpt-chatgpt {
+    min-width: 24px;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+}
+
+.gpt-user {
+    background-color: rgb(41, 128, 185);
+}
+
+.gpt-chatgpt {
+    background-color: rgb(171, 104, 255);
+    
+}
+
+.gpt-name {
+    font-weight: 600;
+}

@@ -9,7 +9,9 @@ dsq_thread_id:
     - '3695902449'
 ---
 
-[![Cover for Building Scalable Apps with Redis and Node.js](http://ejosh.co/de/wp-content/uploads/2014/08/4480OS_mockupcover.png)](http://ejosh.co/de/2014/08/i-have-a-node-js-and-redis-book-coming-out-soon/4480os_mockupcover/#main)I wrote a book! I am little biased, but I feel you will enjoy this book. The name of the book is [Building Scalable Apps with Redis and Node.js](https://www.packtpub.com/web-development/building-scalable-apps-redis-and-nodejs).
+[![Cover for Building Scalable Apps with Redis and Node.js](http://ejosh.co/de/wp-content/uploads/2014/08/4480OS_mockupcover.png)](http://ejosh.co/de/2014/08/i-have-a-node-js-and-redis-book-coming-out-soon/4480os_mockupcover/#main)
+
+I wrote a book! I am little biased, but I feel you will enjoy this book. The name of the book is [Building Scalable Apps with Redis and Node.js](https://www.packtpub.com/web-development/building-scalable-apps-redis-and-nodejs).
 
 If you have enjoyed any of my posts so far (and even if you did not) you will like this book. You will not need expert knowledge in any of these frameworks to benefit from this book. It will show you what you need to know about each framework and most importantly, how all the frameworks work together in a single application. Lots of examples with code are included with the book.  
 Myself, being biased, definitely recommends this book. There is something in this book for everyone no matter what there experience level is.
