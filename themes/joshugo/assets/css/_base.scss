@@ -196,4 +196,13 @@ hr.small-divider {
     border-top: 1px solid rgba(102, 102, 102, 0.25);
     margin: 20px auto 20px 0; /* Center the hr and add some vertical spacing */
   }
-  
+
+.carousel {
+    img {
+        display: none;
+
+        &.active {
+            display: initial;
+        }
+    }
+}

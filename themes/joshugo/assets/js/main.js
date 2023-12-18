@@ -9,4 +9,24 @@ window.addEventListener('scroll', function() {
       header.classList.remove('is-sticky');
     }
   });
-  
+
+function createCarousel(speed, element) {
+  var images = element.querySelectorAll("img")
+
+  const update = index => () => {
+    let previous = (index + images.length - 1) % images.length;
+    let next = (index + 1) % images.length;
+
+    const nextImage = images[index];
+    nextImage.classList.add('active');
+    const prevImage = images[previous];
+    prevImage.classList.remove('active');
+    setTimeout(update(next), speed)
+  }
+
+  update(0)();
+}
+
+window.addEventListener('load', () => {
+  createCarousel(3000, document.querySelector(".carousel"));
+});
