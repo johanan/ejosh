@@ -1,8 +1,9 @@
 ---
 title: "Why I Like React (even in 2024)"
 date: 2024-03-12T23:50:40-04:00
-draft: true
 image: DALL·E_react_watercolor.webp
+tags:
+    - react
 ---
 I recently read a post about React being antiquated. I have liked React for a long time (here is a local meetup talk I gave in 2015?! https://ejosh.co/de/2015/08/my-talk-on-react/ ). I am not really posting this as a rebuttal to the other post, but to shine a light on the core paradigms of React which are still valuable in 2024 and beyond.
 
