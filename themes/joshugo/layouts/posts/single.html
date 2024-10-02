@@ -3,6 +3,7 @@
 {{- define "content" -}}
 <section id="content">
     <article>
+        <h1>{{ .Title }}</h1>
         {{ $featured := .Params.image | default "" }}
         {{ $alt := .Params.imageAlt | default .Title}}
         {{ with $image := or (.Resources.GetMatch $featured) (resources.GetMatch $featured)  }}
@@ -12,18 +13,20 @@
             {{ $small := $image.Resize "300x webp"}}
         <img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" srcset="{{ $small.RelPermalink }} {{ $small.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" sizes="(max-width: 860px) {{ $small.Width }}px, {{ $image.Width }}px" loading="lazy"/>
         {{ end }}
-        <h1>{{ .Title }}</h1>
         <div class="meta">
-            {{- $author :=  .Site.Author.name -}}
-            {{- $authorLink :=  default .Site.Author.link | default .Site.Home.RelPermalink -}}
+            {{- $author :=  .Site.Params.Author.name -}}
+            {{- $authorLink :=  default .Site.Params.Author.link | default .Site.Home.RelPermalink -}}
+            {{- $authorImages := .Site.Params.Author.images -}}
+            {{- $randomIndex := mod (now.UnixNano) 3 -}}
+            {{- $authorImage := index $authorImages $randomIndex -}}
             <span class="post-author">
-                <a href="{{ $authorLink | safeURL }}"><img src="{{ .Site.Author.gravatar }}?s=15" />{{ $author }}</a>
+                <a href="{{ $authorLink | safeURL }}"><img src="{{ $authorImage }}" alt="Author's photo"/></a> <span>By <a href="{{ $authorLink | safeURL }}">{{ $author }}</a></span>
             </span>
-            <span>
-                {{- with .Site.Params.dateformat | default "1.2.2006" | .PublishDate.Format -}}
-                    <time datetime="{{ . }}">{{ . }}</time>&nbsp;
+            <span class="post-meta">
+                {{- with .PublishDate -}}
+                    <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ .Format "1.2.2006" }}</time>
                 {{- end -}}
-                : <span>{{ .WordCount }} words</span>
+                <span>{{ .WordCount }} words</span>
             </span>
             {{- with .Params.github -}}
             <div>

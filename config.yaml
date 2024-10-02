@@ -8,12 +8,15 @@ sectionPagesMenu: ""
 googleAnalytics: GTM-WRQG68S
 disqusShortname: ejoshcode
 
-author:
-  name: Joshua Johanan
-  gravatar: https://secure.gravatar.com/avatar/24025160393b461e60c21638367caa43
-
 params:
   name: josh.code
+  author:
+    name: Joshua Johanan
+    gravatar: https://secure.gravatar.com/avatar/24025160393b461e60c21638367caa43
+    images:
+      - /de/images/josh_patch.webp
+      - https://secure.gravatar.com/avatar/24025160393b461e60c21638367caa43?s=50
+      - /de/images/josh_funko_pop.webp
   
 
 permalinks:
