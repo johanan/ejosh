@@ -56,8 +56,8 @@ Second, at https://youtu.be/74q1vURXvlY?si=sTzB209sOnNRJ4_4&t=681
 
 > How to have a healthy engineering mindset and all of these react Cults are people that don't have healthy engineering mindsets. The never spreaders they are absolutist thinkers they think in black and white terms and software just doesn't work that way it's always about tradeoffs
 
-This gets into the weeds of specific ideas  from the video, but the greater point is important. Engineering and software are not black and white. You should use React when it makes sense for you and your team. There are many teams out there that are using React for the wrong reasons. 
+This gets into the weeds of specific ideas from the video, but the greater point is important. Engineering and software are not black and white. You should use React when it makes sense for you and your team. There are many teams out there that are using React for the wrong reasons. 
 
-React being popular is a **horrible** reason to use React. React allowing your team to approach complicated application because it is simple is a great reason to use React. Understanding what makes React powerful and what the tradeoffs are should be done before deciding to use React for a project.
+React being popular is a **horrible** reason to use React. React allowing your team to approach complicated applications because it is simple is a great reason to use React. Understanding what makes React powerful and what the tradeoffs are should be done before deciding to use React for a project.
 
 I really am not a React apologist. I am only trying to make two points. **1.** It seems in vogue to suggestively pontificate "Why does anyone still use React anymore?" and **2.** I have found that if you are building a web application, I mean a real application; full permission model, dozens of API endpoint calls, lines of code being measured in tens of thousands, etc, then there is no better framework to tame the complexity than React.

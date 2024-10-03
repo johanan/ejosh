@@ -3,9 +3,9 @@ title: "Why I Prefer Errors to Exceptions"
 date: 2024-09-29T11:30:35-04:00
 ---
 
-I recently saw a video pop up in my YouTube feed, ["Why I Prefer Exceptions To Errors"](https://www.youtube.com/watch?v=sS6u5UU3t3c) by [ThePrimeTime](https://www.youtube.com/@ThePrimeTimeagen). The title is a little misleading, as it refers to an [article](https://cedardb.com/blog/exceptions_vs_errors/) hat Primeagen is reacting to. In the video, he makes a case for preferring Errors over Exceptions.
+I recently saw a video pop up in my YouTube feed, ["Why I Prefer Exceptions To Errors"](https://www.youtube.com/watch?v=sS6u5UU3t3c) by [ThePrimeTime](https://www.youtube.com/@ThePrimeTimeagen). The title is a little misleading, as it refers to an [article](https://cedardb.com/blog/exceptions_vs_errors/) that Primeagen is reacting to. In the video, he makes a case for preferring Errors over Exceptions.
 
-Before jumping in, I want to talk about Primeagen. I am not a subscriber so I do not see every video, but the videos that I have seen about software and being a software engineer is clearly based on experience and knowledge. You can tell he thinks about what it means to be a engineer and how to purposefully write good software. I wholeheartedly agree and his approach should be the tagline of my blog, "Deliberately think about how software is written and maintained to be a better developer." 
+Before jumping in, I want to talk about Primeagen. I am not a subscriber so I do not see every video, but the videos that I have seen about software and what it means to be a software engineer are clearly based on experience and knowledge. You can tell he thinks about what it means to be a engineer and how to purposefully write good software. I wholeheartedly agree and his approach should be the tagline of my blog, "Deliberately think about how software is written and maintained to be a better developer." 
 
 I really just wanted to highlight one small portion of the video starting at 7:30 to 10:21. I have linked the video below to start at the appropriate place.
 
@@ -28,9 +28,9 @@ The inversion of thinking about throwing an exception is key. You cannot know wh
 ## Monadic Transfers
 Primagen mentioned, "I can even do some nice monadic transfers". What does that even mean? That means that in a language that fully supports monads you do not have to keep checking if the process failed or not. You can write code that looks completely imperative while also handling 100% of all errors.
 
-Let's do a quick example in my preferred language of F#. F# is essentially OCaml on .NET. Full interoperability with C# and any library. And it is functional first that also does OOP better than C#.
+Let's do a quick example in my preferred language of F#. F# is essentially OCaml on .NET. Full interoperability with C# and any .NET library. It is functional first that also, in my opinion, does OOP better than C#.
 
-The most important feature is that it has a monadic `Result` type. All you need to know is that the type signature is `Result<'ok, 'error>`. If everything runs as expected it will return the `'ok` type or the `'error` type when something has failed. I am not going to a lot of time on the syntax as it looks like pseudo code, but it compiles. 
+The most important feature for this post is that it has a monadic `Result` type. All you need to know is that the type signature is `Result<'ok, 'error>`. If everything runs as expected it will return the `'ok` type or the `'error` type when something has failed. I am not going to take a lot of time on the syntax as it looks like pseudo code, but it compiles. 
 
 We will use F# interactive to code right in the console. You will need the .NET SDK installed to run fsi.
 
@@ -134,9 +134,9 @@ let parseAddSafe x y =
 ```
 
 Crash course on this code.
-- `Fstoolkit.ErrorHandling` is a package that gives us `result { }`. This is called a computation expression in F#. The two things we need to know is that anytime you see `!` it actually executes `Result.bind` and we have to `return` so that it knows we are done. 
+- `Fstoolkit.ErrorHandling` is a package that gives us `result { }`. This is called a computation expression in F#. The two things we need to know is that anytime you see `!` it actually executes `Result.bind` and we have to `return` out of the expression when we are done. 
 - `parseAdd` adds context to the errors before completing. Notice we did not have to touch our initial functions at all. They can stay laser focused on parsing and validating.
-- `parseAddSafe` adds a default of zero. No matter what you give this function it will return a sum of two ints. This does swallow errors, *but* that is a conscious decision.
+- `parseAddSafe` adds a default of zero. No matter what you give this function it will return a sum of two ints. This does swallow errors, but that is a *conscious* decision.
 
 Notice the types that are returned.
 
@@ -175,7 +175,7 @@ This is a trivial example, but hopefully instructive. We can communicate an issu
 Here are the key points to remember.
 
 1. The type signature of a function should tell you what the function returns and how the function may fail. This allows the caller to make a decision about what to do. Exceptions throw a massive wrench in that.
-2. Well, now don't we have to unwrap or check this value every single time we use it? Not if it is a monad. Monadic transfers are the functions that allow you to combine or map over the `Result` without unwrapping it. All functional languages allow you to do this in increasingly terse syntax.
+2. Well, now don't we have to unwrap or check this value every single time we use it? Not if it is a monad. Monadic transfers are the functions that allow you to combine or map over the `Result` without unwrapping it. All functional languages allow you to do this in increasingly terse syntax. For example, `do` notation in Haskell.
 3. F# is a criminally underused language.
 
 For me, I would not want to build anything without something like a `Result` type. There is so much control over what is happening. It is easy to understand what can go wrong, how it goes wrong, and how that is handled by just reading the code.
