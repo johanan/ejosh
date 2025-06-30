@@ -1,6 +1,6 @@
 {{- $options := dict "Source" "css/style.scss" "targetPath" "css/style.min.css"
 "enableSourceMap" true -}} {{ $style := resources.Get "css/style.scss" |
-css.Sass $options }}
+resources.ToCSS $options }}
 <link rel="stylesheet" href="{{ $style.Permalink }}" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
