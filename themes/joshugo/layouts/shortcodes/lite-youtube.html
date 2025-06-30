@@ -1,7 +1,18 @@
-{{- $id := .Get "videoid" | default (.Get 0) -}}
-{{- $class := .Get "class" | default (.Get 1) -}}
-{{- $t := .Get "t" | default 0 -}}
-{{- $title := .Get "title" | default "YouTube Video" }}
-{{- $quality := .Get "posterquality" | default "hqdefault"}}
-<lite-youtube title="{{ $title }}" videoid="{{ $id }}" style="max-width: none;" posterquality="{{ $quality }}" videoStartAt="{{ $t }}" autoload></lite-youtube>
-<script type="module" defer src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.4.0/lite-youtube.js"></script>
+{{- $id := .Get "videoid" | default (.Get 0) -}} {{- $class := .Get "class" |
+default (.Get 1) -}} {{- $t := .Get "t" | default 0 -}} {{- $title := .Get
+"title" | default "YouTube Video" }} {{- $quality := .Get "posterquality" |
+default "hqdefault"}}
+<lite-youtube
+    class="breakout"
+    title="{{ $title }}"
+    videoid="{{ $id }}"
+    style="max-width: none"
+    posterquality="{{ $quality }}"
+    videoStartAt="{{ $t }}"
+    autoload
+></lite-youtube>
+<script
+    type="module"
+    defer
+    src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.4.0/lite-youtube.js"
+></script>
