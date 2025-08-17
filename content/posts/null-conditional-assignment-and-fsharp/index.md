@@ -10,7 +10,7 @@ categories:
 
 My team has fully moved to F# and it has been wonderful. The unfortunate part of changing languages is that there are very few roadmaps on how. We are on the other side of this change and at this point F# code feels more natural than C#. I say all of this to give a background that there is not enough F# content out there. My goal here is just a short post that adds to the greater knowledge around the thinking when moving from C# to F#.
 
-I like Nick Chapsas videos. I am always watching for videos that covers something that I do not know. This is a response (🙌 not really), to this video, which gives me a chance to contrast differences in C# and F#.
+I like Nick Chapsas videos. I am always watching for videos that cover something that I do not know. This is a response (🙌 not really), to this video, which gives me a chance to contrast differences in C# and F#.
 
 {{< lite-youtube HMSfIkYI5ls >}}
 
@@ -41,7 +41,7 @@ First let's create a simple minimal API.
 dotnet new web -lang F# -n null-assignment
 ```
 
-Next here is full `Program.fs`. It simulates having saved customers with an array and an endpoint named birthday that increments the customers age by one.
+Next here is the full `Program.fs`. It simulates having saved customers with an array and an endpoint named birthday that increments the customers age by one.
 
 ```fsharp
 open System

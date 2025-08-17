@@ -68,3 +68,18 @@ Remember the pipeline. You can test your logic with functions that take and retu
 
 [^1]: If you know the limitations of the ORM you are using and what your application needs, then create a new ORM. Think Dapper built by Stack Overflow to solve their specific problems. https://samsaffron.com/archive/2011/03/30/How+I+learned+to+stop+worrying+and+write+my+own+ORM
 [^2]: Is the problem that I don't fully understand EF Core? Probably. It is a massive library that does a lot of things. And that is kinda the point I am making here.
+
+
+Outline:
+You do not need EF Core
+-- Tighten the focus to just EF Core to get out of the grand scheme of all ORMs
+- Long history of posts
+    - https://web.archive.org/web/20220823105749/http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
+    - https://wozniak.ca/blog/2014/08/03/1/index.html?utm_source=tuicool&amp%3Butm_medium=referral
+- We moved off of EF Core and have not looked back
+     - EF Core is great software, but that does not matter
+     - ORMS in general are the wrongs abstraction
+- what we do instead
+    - Dapper -> simple sql to record/object mapper
+
+
