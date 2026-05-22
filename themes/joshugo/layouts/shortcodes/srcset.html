@@ -1,8 +1,9 @@
 {{- $alt := .Get "alt" | default "" -}}
 {{- $src := .Get "src" -}}
 {{- $caption := .Get "caption" -}}
+{{- $link := .Get "link" -}}
 <figure>
-{{ partial "functions/srcset" (dict "Page" .Page "src" $src "alt" $alt) }}
+{{ partial "functions/srcset" (dict "Page" .Page "src" $src "alt" $alt "link" $link) }}
 {{ if $caption }}
     <figcaption>{{ $caption }}</figcaption>
 {{ end }}
